@@ -3,7 +3,7 @@
 ¡Bienvenido/a a mi portafolio web!  
 Este sitio representa mi identidad profesional como estudiante de **Ingeniería de Software**, con especial interés en **bases de datos**, desarrollo web y tecnologías modernas. Aquí comparto mis proyectos, conocimientos y aspiraciones en el mundo de la tecnología.
 
-> ⚠️ **Nota:** El portafolio está en constante evolución.  
+> ⚠️ **Nota:** El portafolio está en constante actualizacion.  
 > Sin embargo, ya es **completamente funcional** y accesible para todos los visitantes.
 
 ---
