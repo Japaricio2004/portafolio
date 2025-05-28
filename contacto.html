@@ -5,63 +5,485 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Contacto | Jorge Aparicio</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+        fontFamily: {
+            sans: ['Inter', 'sans-serif']
+        },
+        boxShadow: {
+            "3d": "0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255,255,255,0.1)",
+            "neon": "0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3), 0 0 80px rgba(239, 68, 68, 0.1)",
+            "form-glow": "0 0 30px rgba(239, 68, 68, 0.3), inset 0 0 20px rgba(255,255,255,0.05)",
+        },
+        transitionTimingFunction: {
+            'bounce': 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
+        },
+        }
+    }
+    }
+</script>
+
+<style>
+    body {
+    overflow-x: hidden;
+    }
+
+    body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    animation: morphBackground 15s ease-in-out infinite;
+    }
+
+    body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        conic-gradient(from 0deg at 25% 25%, rgba(239, 68, 68, 0.08), transparent, transparent, rgba(59, 130, 246, 0.08)),
+        conic-gradient(from 180deg at 75% 75%, rgba(168, 85, 247, 0.06), transparent, transparent, rgba(34, 197, 94, 0.06));
+    animation: rotateGradient 25s linear infinite;
+    backdrop-filter: blur(1px);
+    }
+
+    @keyframes morphBackground {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    }
+    25% { 
+        transform: scale(1.02) rotate(0.5deg);
+        background: 
+        radial-gradient(ellipse 500px 350px at 60% 20%, rgba(59, 130, 246, 0.18), transparent),
+        radial-gradient(ellipse 400px 500px at 30% 80%, rgba(168, 85, 247, 0.15), transparent),
+        radial-gradient(ellipse 450px 300px at 90% 50%, rgba(239, 68, 68, 0.12), transparent),
+        linear-gradient(225deg, #000000, #0f0f0f, #222222, #000000);
+    }
+    50% { 
+        transform: scale(1.05) rotate(1deg);
+        background: 
+        radial-gradient(ellipse 350px 500px at 80% 60%, rgba(168, 85, 247, 0.2), transparent),
+        radial-gradient(ellipse 600px 250px at 10% 40%, rgba(34, 197, 94, 0.15), transparent),
+        radial-gradient(ellipse 300px 400px at 70% 10%, rgba(59, 130, 246, 0.12), transparent),
+        linear-gradient(315deg, #000000, #1a1a1a, #111111, #000000);
+    }
+    75% { 
+        transform: scale(1.03) rotate(0.5deg);
+        background: 
+        radial-gradient(ellipse 450px 400px at 40% 90%, rgba(34, 197, 94, 0.16), transparent),
+        radial-gradient(ellipse 350px 350px at 90% 20%, rgba(239, 68, 68, 0.14), transparent),
+        radial-gradient(ellipse 500px 300px at 20% 60%, rgba(168, 85, 247, 0.11), transparent),
+        linear-gradient(45deg, #000000, #222222, #0f0f0f, #000000);
+    }
+    100% { 
+        transform: scale(1) rotate(0deg);
+        background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    }
+    }
+
+    @keyframes rotateGradient {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(0.95); }
+    75% { transform: rotate(270deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+    }
+
+    /* Partículas flotantes */
+    .particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+    z-index: -1;
+    }
+
+    @keyframes float {
+    0% { 
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) translateX(10px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) translateX(-10px) scale(1);
+    }
+    100% { 
+        transform: translateY(-10vh) translateX(0) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+    }
+
+    .form-hover {
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    }
+    
+    .form-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    }
+
+    .pulse-glow {
+    animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 50px rgba(239, 68, 68, 0.3);
+    }
+    }
+
+    .input-glow:focus {
+    box-shadow: 0 0 20px rgba(239, 68, 68, 0.4), inset 0 0 10px rgba(255,255,255,0.1);
+    border-color: rgba(239, 68, 68, 0.8);
+    background: rgba(255, 255, 255, 0.1);
+    }
+
+    .send-button {
+    background: linear-gradient(135deg, #ef4444, #dc2626, #b91c1c);
+    position: relative;
+    overflow: hidden;
+    }
+
+    .send-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.6s;
+    }
+
+    .send-button:hover::before {
+    left: 100%;
+    }
+
+    .contact-info-card {
+    background: rgba(17, 24, 39, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    }
+
+    .contact-info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(239, 68, 68, 0.2);
+    }
+
+    
+    .mobile-menu {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    
+    @media (max-width: 640px) {
+        .particle:nth-child(n+6) {
+            display: none;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .particle:nth-child(n+4) {
+            display: none;
+        }
+    }
+</style>
 </head>
-<body class="bg-gradient-to-b from-red-50 via-white to-gray-100 text-gray-800 font-sans">
+
+<body class="bg-black text-gray-100 font-sans min-h-screen">
+
+<div class="particle" style="left: 10%; animation-delay: 0s; background: rgba(239, 68, 68, 0.4);"></div>
+<div class="particle" style="left: 20%; animation-delay: 2s; background: rgba(59, 130, 246, 0.4);"></div>
+<div class="particle" style="left: 30%; animation-delay: 4s; background: rgba(168, 85, 247, 0.4);"></div>
+<div class="particle" style="left: 40%; animation-delay: 6s; background: rgba(34, 197, 94, 0.4);"></div>
+<div class="particle hidden sm:block" style="left: 50%; animation-delay: 8s; background: rgba(239, 68, 68, 0.3);"></div>
+<div class="particle hidden sm:block" style="left: 60%; animation-delay: 10s; background: rgba(59, 130, 246, 0.3);"></div>
+<div class="particle hidden md:block" style="left: 70%; animation-delay: 12s; background: rgba(168, 85, 247, 0.3);"></div>
+<div class="particle hidden md:block" style="left: 80%; animation-delay: 14s; background: rgba(34, 197, 94, 0.3);"></div>
+<div class="particle hidden lg:block" style="left: 90%; animation-delay: 16s; background: rgba(239, 68, 68, 0.2);"></div>
 
 
-<nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-3xl font-extrabold text-red-600 dark:text-red-400 tracking-tight">Jorge Aparicio</h1>
-    <ul class="hidden md:flex gap-6 text-gray-600 font-medium text-lg">
-        <li><a href="index.html" class="hover:text-red-500 transition">Inicio</a></li>
-        <li><a href="sobremi.html" class="hover:text-red-500 transition">Sobre mí</a></li>
-        <li><a href="cv.html" class="hover:text-red-500 transition">CV</a></li>
-        <li><a href="proyectos.html" class="hover:text-red-500 transition">Proyectos</a></li>
-        <li><a href="blog.html" class="hover:text-red-500 transition">Blog</a></li>
-        <li><a href="contacto.html" class="text-red-500 font-semibold">Contacto</a></li>
-    </ul>
+<header class="bg-black/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-red-500 drop-shadow-lg">Jorge Aparicio</h1>
+            
+            
+            <nav class="hidden md:flex gap-4 lg:gap-6 text-gray-300 font-medium text-sm lg:text-lg">
+                <a href="index.html" class="hover:text-red-400 transition-colors duration-300">Inicio</a>
+                <a href="sobremi.html" class="hover:text-red-400 transition-colors duration-300">Sobre mí</a>
+                <a href="cv.html" class="hover:text-red-400 transition-colors duration-300">CV</a>
+                <a href="proyectos.html" class="hover:text-red-400 transition-colors duration-300">Proyectos</a>
+                <a href="blog.html" class="hover:text-red-400 transition-colors duration-300">Blog</a>
+                <a href="contacto.html" class="text-red-500 font-semibold drop-shadow-sm">Contacto</a>
+            </nav>
+            
+            
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 p-2" aria-label="Abrir menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        
+        <nav id="mobile-menu" class="mobile-menu md:hidden mt-4 pb-4 border-t border-gray-800">
+            <div class="flex flex-col space-y-3 pt-4">
+                <a href="index.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Inicio</a>
+                <a href="sobremi.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Sobre mí</a>
+                <a href="cv.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">CV</a>
+                <a href="proyectos.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Proyectos</a>
+                <a href="blog.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Blog</a>
+                <a href="contacto.html" class="text-red-500 font-semibold drop-shadow-sm py-2">Contacto</a>
+            </div>
+        </nav>
     </div>
-</nav>
+</header>
 
-<!-- FORM SECTION -->
-<section class="max-w-3xl mx-auto px-6 py-16">
-    <h2 class="text-4xl font-extrabold text-center text-red-500 mb-4">Contáctame</h2>
-    <p class="text-center text-gray-600 mb-10">¿Tienes una consulta o propuesta? Estoy encantado de leer tu mensaje.</p>
 
-    <form 
-    action="https://formsubmit.co/jorge2946237@gmail.com" 
-    method="POST" 
-    class="space-y-6 bg-white p-10 rounded-2xl shadow-xl hover:shadow-2xl transition duration-300"
-    >
-    <input type="hidden" name="_next" value="https://portafolio-jorge-aparicio-alvarez.netlify.app/gracias.html">
-    <input type="hidden" name="_captcha" value="false">
+<section class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+    <div class="text-center mb-8 sm:mb-16">
+        <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-3d border border-gray-800 transform transition hover:scale-105 duration-500 ease-bounce max-w-2xl mx-auto pulse-glow mb-8 sm:mb-12">
+            <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">💬 Contáctame</h2>
+            <p class="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">¿Tienes una consulta o propuesta? Estoy encantado de leer tu mensaje y conectar contigo.</p>
+        </div>
+    </div>
 
-    <div>
-        <label class="block text-gray-700 font-medium mb-1">Nombre</label>
-        <input type="text" name="nombre" required placeholder="Ingresa tu nombre"
-            class="w-full border border-gray-300 rounded-xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-150" />
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-8 sm:mb-12">
+        <div class="contact-info-card rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">📧</div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Email</h3>
+            <p class="text-gray-300 text-xs sm:text-sm break-all">jorge2946237@gmail.com</p>
+        </div>
+        <div class="contact-info-card rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">💼</div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">LinkedIn</h3>
+            <p class="text-gray-300 text-xs sm:text-sm">Conectemos profesionalmente</p>
+        </div>
+        <div class="contact-info-card rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center sm:col-span-2 md:col-span-1">
+            <div class="text-2xl sm:text-3xl mb-2 sm:mb-3">🚀</div>
+            <h3 class="text-base sm:text-lg font-bold text-white mb-1 sm:mb-2">Proyectos</h3>
+            <p class="text-gray-300 text-xs sm:text-sm">Colaboraciones y consultas</p>
+        </div>
     </div>
-    <div>
-        <label class="block text-gray-700 font-medium mb-1">Correo electrónico</label>
-        <input type="email" name="email" required placeholder="tucorreo@ejemplo.com"
-            class="w-full border border-gray-300 rounded-xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-150" />
+
+    
+    <div class="bg-gray-900/80 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-form-glow border border-gray-800 form-hover">
+        <div class="text-center mb-6 sm:mb-8">
+            <h3 class="text-xl sm:text-2xl font-bold text-white mb-2">Envíame un mensaje</h3>
+            <p class="text-gray-300 text-sm sm:text-base">Completa el formulario y te responderé lo antes posible</p>
+        </div>
+
+        <form 
+        action="https://formsubmit.co/jorge2946237@gmail.com" 
+        method="POST" 
+        class="space-y-4 sm:space-y-6"
+        >
+        <input type="hidden" name="_next" value="gracias.html">
+        <input type="hidden" name="_captcha" value="false">
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div>
+            <label class="block text-gray-300 font-medium mb-2 text-sm sm:text-base">✨ Nombre</label>
+            <input 
+                type="text" 
+                name="nombre" 
+                required 
+                placeholder="Ingresa tu nombre"
+                class="w-full bg-gray-800/50 border border-gray-600 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none transition duration-300 input-glow backdrop-blur-sm text-sm sm:text-base"
+            />
+            </div>
+            <div>
+            <label class="block text-gray-300 font-medium mb-2 text-sm sm:text-base">📧 Email</label>
+            <input 
+                type="email" 
+                name="email" 
+                required 
+                placeholder="tucorreo@ejemplo.com"
+                class="w-full bg-gray-800/50 border border-gray-600 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none transition duration-300 input-glow backdrop-blur-sm text-sm sm:text-base"
+            />
+            </div>
+        </div>
+
+        <div>
+            <label class="block text-gray-300 font-medium mb-2 text-sm sm:text-base">💭 Mensaje</label>
+            <textarea 
+            name="mensaje" 
+            rows="5" 
+            required 
+            placeholder="Escribe tu mensaje aquí... Cuéntame sobre tu proyecto, consulta o propuesta."
+            class="w-full bg-gray-800/50 border border-gray-600 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-white placeholder-gray-400 focus:outline-none transition duration-300 input-glow backdrop-blur-sm resize-none text-sm sm:text-base"
+            ></textarea>
+        </div>
+
+        <button 
+            type="submit"
+            class="w-full send-button text-white font-bold text-base sm:text-lg py-3 sm:py-4 rounded-lg sm:rounded-xl transition-all duration-300 transform hover:scale-105 shadow-neon relative overflow-hidden"
+        >
+            🚀 Enviar Mensaje
+        </button>
+        </form>
     </div>
-    <div>
-        <label class="block text-gray-700 font-medium mb-1">Mensaje</label>
-        <textarea name="mensaje" rows="5" required placeholder="Escribe tu mensaje aquí..."
-                class="w-full border border-gray-300 rounded-xl px-4 py-3 mt-1 focus:outline-none focus:ring-2 focus:ring-red-500 transition duration-150"></textarea>
-    </div>
-    <button type="submit"
-            class="w-full bg-red-500 hover:bg-red-600 text-white font-semibold text-lg py-3 rounded-xl transition duration-200 shadow-md hover:shadow-lg">
-        Enviar mensaje
-    </button>
-    </form>
+
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center py-8 mt-20 text-gray-500 text-sm border-t border-gray-300">
-    <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+
+<footer class="text-center py-6 sm:py-8 border-t border-gray-800 text-gray-500 text-xs sm:text-sm mt-8 sm:mt-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+        <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+    </div>
 </footer>
+
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            // Update button icon
+            const icon = mobileMenuBtn.querySelector('svg path');
+            if (mobileMenu.classList.contains('active')) {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            } else {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
+            }
+        });
+        
+        
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('svg path');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('svg path');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            }
+        });
+    }
+});
+
+
+const textarea = document.querySelector('textarea[name="mensaje"]');
+const originalPlaceholder = textarea.placeholder;
+
+textarea.addEventListener('focus', function() {
+    this.placeholder = 'Escríbeme sobre tu idea, proyecto o consulta...';
+});
+
+textarea.addEventListener('blur', function() {
+    if (!this.value) {
+    this.placeholder = originalPlaceholder;
+    }
+});
+
+document.querySelector('form').addEventListener('submit', function(e) {
+    const button = this.querySelector('button[type="submit"]');
+    button.innerHTML = '🚀 Enviando...';
+    button.style.transform = 'scale(0.95)';
+    
+    // Crear partículas de éxito
+    for (let i = 0; i < 10; i++) {
+    createSuccessParticle();
+    }
+});
+
+function createSuccessParticle() {
+    const particle = document.createElement('div');
+    particle.style.cssText = `
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: #ef4444;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1000;
+      left: ${Math.random() * 100}vw;
+    top: 100vh;
+    animation: successFloat 2s ease-out forwards;
+    `;
+    
+    document.body.appendChild(particle);
+    
+    setTimeout(() => {
+    particle.remove();
+    }, 2000);
+}
+
+
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes successFloat {
+    to {
+        transform: translateY(-100vh) rotate(360deg);
+        opacity: 0;
+    }
+    }
+`;
+document.head.appendChild(style);
+
+
+if ('ontouchstart' in window) {
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            this.style.transform = 'scale(1.02)';
+        });
+        
+        input.addEventListener('blur', function() {
+            this.style.transform = 'scale(1)';
+        });
+    });
+}
+</script>
 
 </body>
 </html>
