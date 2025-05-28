@@ -33,7 +33,6 @@ El proyecto fue desarrollado utilizando herramientas modernas, enfocadas en simp
 - ✅ **CSS3 / Tailwind CSS** → Estilización personalizada con utilidades modernas.
 - ✅ **JavaScript (básico)** → Interactividad ligera y mejoras visuales.
 - ✅ **Netlify** → Hosting rápido y confiable con CI/CD.
-- ✅ **GitHub** → Control de versiones y colaboración en desarrollo.
 
 ---
 
