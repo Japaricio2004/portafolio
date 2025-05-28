@@ -5,107 +5,358 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Blog | Jorge Aparicio</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
+  <script>
+    tailwind.config = {
+    darkMode: 'class',
+    theme: {
+        extend: {
+        fontFamily: {
+            sans: ['Inter', 'sans-serif']
+        },
+        boxShadow: {
+            "3d": "0 15px 35px rgba(0, 0, 0, 0.4), inset 0 0 15px rgba(255,255,255,0.1)",
+            "neon": "0 0 20px rgba(239, 68, 68, 0.5), 0 0 40px rgba(239, 68, 68, 0.3), 0 0 80px rgba(239, 68, 68, 0.1)",
+            "neon-blue": "0 0 20px rgba(59, 130, 246, 0.5), 0 0 40px rgba(59, 130, 246, 0.3)",
+            "neon-green": "0 0 20px rgba(34, 197, 94, 0.5), 0 0 40px rgba(34, 197, 94, 0.3)",
+            "neon-yellow": "0 0 20px rgba(234, 179, 8, 0.5), 0 0 40px rgba(234, 179, 8, 0.3)",
+        },
+        transitionTimingFunction: {
+            'bounce': 'cubic-bezier(0.68, -0.55, 0.27, 1.55)',
+        },
+        }
+    }
+    }
+</script>
+
+<style>
+    body {
+    overflow-x: hidden;
+    }
+
+    body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    animation: morphBackground 15s ease-in-out infinite;
+    }
+
+    body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: 
+        conic-gradient(from 0deg at 25% 25%, rgba(239, 68, 68, 0.08), transparent, transparent, rgba(59, 130, 246, 0.08)),
+        conic-gradient(from 180deg at 75% 75%, rgba(168, 85, 247, 0.06), transparent, transparent, rgba(34, 197, 94, 0.06));
+    animation: rotateGradient 25s linear infinite;
+    backdrop-filter: blur(1px);
+    }
+
+    @keyframes morphBackground {
+    0% { 
+        transform: scale(1) rotate(0deg);
+        background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    }
+    25% { 
+        transform: scale(1.02) rotate(0.5deg);
+        background: 
+        radial-gradient(ellipse 500px 350px at 60% 20%, rgba(59, 130, 246, 0.18), transparent),
+        radial-gradient(ellipse 400px 500px at 30% 80%, rgba(168, 85, 247, 0.15), transparent),
+        radial-gradient(ellipse 450px 300px at 90% 50%, rgba(239, 68, 68, 0.12), transparent),
+        linear-gradient(225deg, #000000, #0f0f0f, #222222, #000000);
+    }
+    50% { 
+        transform: scale(1.05) rotate(1deg);
+        background: 
+        radial-gradient(ellipse 350px 500px at 80% 60%, rgba(168, 85, 247, 0.2), transparent),
+        radial-gradient(ellipse 600px 250px at 10% 40%, rgba(34, 197, 94, 0.15), transparent),
+        radial-gradient(ellipse 300px 400px at 70% 10%, rgba(59, 130, 246, 0.12), transparent),
+        linear-gradient(315deg, #000000, #1a1a1a, #111111, #000000);
+    }
+    75% { 
+        transform: scale(1.03) rotate(0.5deg);
+        background: 
+        radial-gradient(ellipse 450px 400px at 40% 90%, rgba(34, 197, 94, 0.16), transparent),
+        radial-gradient(ellipse 350px 350px at 90% 20%, rgba(239, 68, 68, 0.14), transparent),
+        radial-gradient(ellipse 500px 300px at 20% 60%, rgba(168, 85, 247, 0.11), transparent),
+        linear-gradient(45deg, #000000, #222222, #0f0f0f, #000000);
+    }
+    100% { 
+        transform: scale(1) rotate(0deg);
+        background: 
+        radial-gradient(ellipse 400px 400px at 20% 30%, rgba(239, 68, 68, 0.15), transparent),
+        radial-gradient(ellipse 500px 300px at 80% 70%, rgba(59, 130, 246, 0.12), transparent),
+        radial-gradient(ellipse 350px 450px at 40% 80%, rgba(168, 85, 247, 0.1), transparent),
+        linear-gradient(135deg, #000000, #111111, #1a1a1a, #000000);
+    }
+    }
+
+    @keyframes rotateGradient {
+    0% { transform: rotate(0deg) scale(1); }
+    25% { transform: rotate(90deg) scale(1.1); }
+    50% { transform: rotate(180deg) scale(0.95); }
+    75% { transform: rotate(270deg) scale(1.05); }
+    100% { transform: rotate(360deg) scale(1); }
+    }
+
+    
+    .particle {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: rgba(239, 68, 68, 0.3);
+    border-radius: 50%;
+    animation: float 20s infinite linear;
+    z-index: -1;
+    }
+
+    @keyframes float {
+    0% { 
+        transform: translateY(100vh) translateX(0) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(90vh) translateX(10px) scale(1);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(10vh) translateX(-10px) scale(1);
+    }
+    100% { 
+        transform: translateY(-10vh) translateX(0) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+    }
+
     .card-hover {
-      transition: all 0.3s ease-in-out;
+      transition: all 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55);
     }
+    
     .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+      transform: translateY(-12px) scale(1.02);
     }
-  </style>
+
+    /* Mobile optimizations */
+    @media (max-width: 768px) {
+      .card-hover:hover {
+        transform: translateY(-6px) scale(1.01);
+      }
+    }
+
+    .pulse-glow {
+      animation: pulseGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 20px rgba(239, 68, 68, 0.3);
+      }
+      50% {
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.6), 0 0 50px rgba(239, 68, 68, 0.3);
+      }
+    }
+
+    
+    .mobile-menu {
+        display: none;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+    }
+
+    .mobile-menu.active {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+    }
+</style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
 
-<!-- NAVBAR -->
-<nav class="bg-white shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-3xl font-extrabold text-red-600">Jorge Aparicio</h1>
-    <ul class="hidden md:flex gap-6 text-gray-600 font-medium text-lg">
-      <li><a href="index.html" class="hover:text-red-500 transition">Inicio</a></li>
-      <li><a href="sobremi.html" class="hover:text-red-500 transition">Sobre mí</a></li>
-      <li><a href="cv.html" class="hover:text-red-500 transition">CV</a></li>
-      <li><a href="proyectos.html" class="hover:text-red-500 transition">Proyectos</a></li>
-      <li><a href="blog.html" class="text-red-500 font-semibold">Blog</a></li>
-      <li><a href="contacto.html" class="hover:text-red-500 transition">Contacto</a></li>
-    </ul>
+<body class="bg-black text-gray-100 font-sans min-h-screen">
+
+<div class="particle" style="left: 10%; animation-delay: 0s; background: rgba(239, 68, 68, 0.4);"></div>
+<div class="particle" style="left: 20%; animation-delay: 2s; background: rgba(59, 130, 246, 0.4);"></div>
+<div class="particle" style="left: 30%; animation-delay: 4s; background: rgba(168, 85, 247, 0.4);"></div>
+<div class="particle" style="left: 40%; animation-delay: 6s; background: rgba(34, 197, 94, 0.4);"></div>
+<div class="particle hidden sm:block" style="left: 50%; animation-delay: 8s; background: rgba(239, 68, 68, 0.3);"></div>
+<div class="particle hidden sm:block" style="left: 60%; animation-delay: 10s; background: rgba(59, 130, 246, 0.3);"></div>
+<div class="particle hidden md:block" style="left: 70%; animation-delay: 12s; background: rgba(168, 85, 247, 0.3);"></div>
+<div class="particle hidden md:block" style="left: 80%; animation-delay: 14s; background: rgba(34, 197, 94, 0.3);"></div>
+<div class="particle hidden lg:block" style="left: 90%; animation-delay: 16s; background: rgba(239, 68, 68, 0.2);"></div>
+
+
+<header class="bg-black/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
+        <div class="flex justify-between items-center">
+            <h1 class="text-2xl sm:text-3xl font-extrabold text-red-500 drop-shadow-lg">Jorge Aparicio</h1>
+            
+            
+            <nav class="hidden md:flex gap-4 lg:gap-6 text-gray-300 font-medium text-sm lg:text-lg">
+                <a href="index.html" class="hover:text-red-400 transition-colors duration-300">Inicio</a>
+                <a href="sobremi.html" class="hover:text-red-400 transition-colors duration-300">Sobre mí</a>
+                <a href="cv.html" class="hover:text-red-400 transition-colors duration-300">CV</a>
+                <a href="proyectos.html" class="hover:text-red-400 transition-colors duration-300">Proyectos</a>
+                <a href="blog.html" class="text-red-500 font-semibold drop-shadow-sm">Blog</a>
+                <a href="contacto.html" class="hover:text-red-400 transition-colors duration-300">Contacto</a>
+            </nav>
+            
+            
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 p-2" aria-label="Abrir menú">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+        
+        
+        <nav id="mobile-menu" class="mobile-menu md:hidden mt-4 pb-4 border-t border-gray-800">
+            <div class="flex flex-col space-y-3 pt-4">
+                <a href="index.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Inicio</a>
+                <a href="sobremi.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Sobre mí</a>
+                <a href="cv.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">CV</a>
+                <a href="proyectos.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Proyectos</a>
+                <a href="blog.html" class="text-red-500 font-semibold drop-shadow-sm py-2">Blog</a>
+                <a href="contacto.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Contacto</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+
+<section class="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
+  <div class="text-center mb-8 sm:mb-16">
+    <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-3d border border-gray-800 transform transition hover:scale-105 duration-500 ease-bounce max-w-3xl mx-auto pulse-glow">
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">📚 Mi Blog</h2>
+      <p class="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">Comparto mis experiencias, aprendizajes y reflexiones sobre tecnología, bases de datos y desarrollo de software.</p>
+    </div>
   </div>
-</nav>
 
-<!-- BLOG -->
-<section class="max-w-5xl mx-auto px-6 py-16">
-  <h2 class="text-4xl font-extrabold text-center text-red-500 mb-12">Últimos artículos del blog</h2>
+  
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
 
-  <div class="grid md:grid-cols-2 gap-10">
-
-    <!-- Repite este bloque para cada artículo -->
-    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-      <div class="flex items-center justify-between mb-2">
-        <span class="bg-red-100 text-red-600 px-3 py-1 text-xs rounded-full font-semibold">Base de Datos</span>
-        <span class="text-gray-400 text-sm">📅 10 mayo 2025</span>
+    
+    <article class="bg-gray-900/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-3d card-hover">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2 sm:gap-0">
+        <span class="bg-gradient-to-r from-red-500 to-red-600 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-full font-bold shadow-neon w-fit">Base de Datos</span>
+        <span class="text-gray-400 text-xs sm:text-sm">📅 10 mayo 2025</span>
       </div>
-      <h3 class="text-xl font-bold text-gray-800 mb-2">¿Qué es un DBA y por qué quiero serlo?</h3>
-      <p class="text-gray-600 mb-4">Exploro mi interés por la administración de bases de datos y el impacto que tiene un DBA en proyectos reales.</p>
-      <div class="hidden text-gray-600 mb-4 extra-content">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 hover:text-red-400 transition-colors duration-300 line-clamp-2">¿Qué es un DBA y por qué quiero serlo?</h3>
+      <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Exploro mi interés por la administración de bases de datos y el impacto que tiene un DBA en proyectos reales.</p>
+      <div class="hidden text-gray-300 mb-4 sm:mb-6 extra-content leading-relaxed text-sm sm:text-base">
         Hablamos de roles como respaldo, recuperación, rendimiento y seguridad de la información. También menciono herramientas como Oracle, SQL Server y PostgreSQL, y cómo planeo certificarme en el futuro.
       </div>
-      <button onclick="toggleContent(this)" class="text-red-500 font-medium hover:underline">Ver más →</button>
+      <button onclick="toggleContent(this)" class="bg-gradient-to-r from-red-500 to-red-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-110 shadow-neon text-sm sm:text-base w-full sm:w-auto">Ver más →</button>
     </article>
 
-    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-      <div class="flex items-center justify-between mb-2">
-        <span class="bg-blue-100 text-blue-600 px-3 py-1 text-xs rounded-full font-semibold">SQL</span>
-        <span class="text-gray-400 text-sm">📅 6 mayo 2025</span>
+    
+    <article class="bg-gray-900/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-3d card-hover">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2 sm:gap-0">
+        <span class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-full font-bold shadow-neon-blue w-fit">SQL</span>
+        <span class="text-gray-400 text-xs sm:text-sm">📅 6 mayo 2025</span>
       </div>
-      <h3 class="text-xl font-bold text-gray-800 mb-2">Tips para aprender SQL desde cero</h3>
-      <p class="text-gray-600 mb-4">Recomendaciones personales para estudiantes y autodidactas que desean dominar bases de datos relacionales.</p>
-      <div class="hidden text-gray-600 mb-4 extra-content">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 hover:text-blue-400 transition-colors duration-300 line-clamp-2">Tips para aprender SQL desde cero</h3>
+      <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Recomendaciones personales para estudiantes y autodidactas que desean dominar bases de datos relacionales.</p>
+      <div class="hidden text-gray-300 mb-4 sm:mb-6 extra-content leading-relaxed text-sm sm:text-base">
         Hablo de la importancia de practicar con proyectos reales, usar entornos como MySQL y PostgreSQL, leer documentación oficial y resolver ejercicios con joins, subconsultas y funciones agregadas.
       </div>
-      <button onclick="toggleContent(this)" class="text-blue-500 font-medium hover:underline">Ver más →</button>
+      <button onclick="toggleContent(this)" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-110 shadow-neon-blue text-sm sm:text-base w-full sm:w-auto">Ver más →</button>
     </article>
 
-    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-      <div class="flex items-center justify-between mb-2">
-        <span class="bg-green-100 text-green-600 px-3 py-1 text-xs rounded-full font-semibold">Carrera</span>
-        <span class="text-gray-400 text-sm">📅 1 mayo 2025</span>
+    
+    <article class="bg-gray-900/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-3d card-hover">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2 sm:gap-0">
+        <span class="bg-gradient-to-r from-green-500 to-green-600 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-full font-bold shadow-neon-green w-fit">Carrera</span>
+        <span class="text-gray-400 text-xs sm:text-sm">📅 1 mayo 2025</span>
       </div>
-      <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo elegí el camino de Ingeniería de Software</h3>
-      <p class="text-gray-600 mb-4">Una reflexión personal sobre lo que me motivó a estudiar esta carrera.</p>
-      <div class="hidden text-gray-600 mb-4 extra-content">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 hover:text-green-400 transition-colors duration-300 line-clamp-2">Cómo elegí el camino de Ingeniería de Software</h3>
+      <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Una reflexión personal sobre lo que me motivó a estudiar esta carrera.</p>
+      <div class="hidden text-gray-300 mb-4 sm:mb-6 extra-content leading-relaxed text-sm sm:text-base">
         Desde joven me apasionaba la tecnología. A lo largo del tiempo descubrí que podía combinar creatividad con lógica para resolver problemas y construir sistemas útiles. Hoy quiero especializarme en datos.
       </div>
-      <button onclick="toggleContent(this)" class="text-green-500 font-medium hover:underline">Ver más →</button>
+      <button onclick="toggleContent(this)" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-110 shadow-neon-green text-sm sm:text-base w-full sm:w-auto">Ver más →</button>
     </article>
 
-    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
-      <div class="flex items-center justify-between mb-2">
-        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 text-xs rounded-full font-semibold">Proyectos</span>
-        <span class="text-gray-400 text-sm">📅 25 abril 2024</span>
+  
+    <article class="bg-gray-900/80 backdrop-blur-sm rounded-xl sm:rounded-2xl p-6 sm:p-8 border border-gray-800 shadow-3d card-hover">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-4 gap-2 sm:gap-0">
+        <span class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-3 sm:px-4 py-2 text-xs sm:text-sm rounded-full font-bold shadow-neon-yellow w-fit">Proyectos</span>
+        <span class="text-gray-400 text-xs sm:text-sm">📅 25 abril 2024</span>
       </div>
-      <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo hice mi primer sitio web profesional</h3>
-      <p class="text-gray-600 mb-4">Te cuento mi experiencia creando el sitio web de Bodega M.A.</p>
-      <div class="hidden text-gray-600 mb-4 extra-content">
+      <h3 class="text-xl sm:text-2xl font-bold text-white mb-3 hover:text-yellow-400 transition-colors duration-300 line-clamp-2">Cómo hice mi primer sitio web profesional</h3>
+      <p class="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">Te cuento mi experiencia creando el sitio web de Bodega M.A.</p>
+      <div class="hidden text-gray-300 mb-4 sm:mb-6 extra-content leading-relaxed text-sm sm:text-base">
         Usé HTML, TailwindCSS y JS. Me enfoqué en que fuera responsive y que tuviera WhatsApp para pedidos, Google Maps para la ubicación y optimización para móviles. Todo sin frameworks.
       </div>
-      <button onclick="toggleContent(this)" class="text-yellow-500 font-medium hover:underline">Ver más →</button>
+      <button onclick="toggleContent(this)" class="bg-gradient-to-r from-yellow-500 to-yellow-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg sm:rounded-xl font-bold hover:from-yellow-600 hover:to-yellow-700 transition-all duration-300 transform hover:scale-110 shadow-neon-yellow text-sm sm:text-base w-full sm:w-auto">Ver más →</button>
     </article>
 
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer class="text-center py-8 mt-20 text-gray-500 text-sm border-t border-gray-300">
-  <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+
+<footer class="text-center py-6 sm:py-8 border-t border-gray-800 text-gray-500 text-xs sm:text-sm mt-8 sm:mt-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+  </div>
 </footer>
 
-<!-- Script para ver más / ver menos -->
 <script>
-  function toggleContent(button) {
+
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            
+            // Update button icon
+            const icon = mobileMenuBtn.querySelector('svg path');
+            if (mobileMenu.classList.contains('active')) {
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+            } else {
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+            }
+        });
+        
+        
+        const menuLinks = mobileMenu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('svg path');
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            });
+        });
+    }
+});
+
+
+function toggleContent(button) {
     const content = button.previousElementSibling;
+    const isHidden = content.classList.contains('hidden');
+    
     content.classList.toggle('hidden');
-    button.textContent = content.classList.contains('hidden') ? 'Ver más →' : 'Ver menos ←';
-  }
+    
+    if (isHidden) {
+        button.textContent = 'Ver menos ←';
+        button.style.transform = 'scale(1.1)';
+    } else {
+        button.textContent = 'Ver más →';
+        button.style.transform = 'scale(1)';
+    }
+}
 </script>
 
 </body>
