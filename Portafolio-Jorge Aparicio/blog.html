@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Jorge Aparicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .card-hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+<!-- NAVBAR -->
+<nav class="bg-white shadow-md sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <h1 class="text-3xl font-extrabold text-red-600">Jorge Aparicio</h1>
+    <ul class="hidden md:flex gap-6 text-gray-600 font-medium text-lg">
+      <li><a href="index.html" class="hover:text-red-500 transition">Inicio</a></li>
+      <li><a href="sobremi.html" class="hover:text-red-500 transition">Sobre mí</a></li>
+      <li><a href="cv.html" class="hover:text-red-500 transition">CV</a></li>
+      <li><a href="proyectos.html" class="hover:text-red-500 transition">Proyectos</a></li>
+      <li><a href="blog.html" class="text-red-500 font-semibold">Blog</a></li>
+      <li><a href="contacto.html" class="hover:text-red-500 transition">Contacto</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- BLOG -->
+<section class="max-w-5xl mx-auto px-6 py-16">
+  <h2 class="text-4xl font-extrabold text-center text-red-500 mb-12">Últimos artículos del blog</h2>
+
+  <div class="grid md:grid-cols-2 gap-10">
+
+    <!-- Repite este bloque para cada artículo -->
+    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
+      <div class="flex items-center justify-between mb-2">
+        <span class="bg-red-100 text-red-600 px-3 py-1 text-xs rounded-full font-semibold">Base de Datos</span>
+        <span class="text-gray-400 text-sm">📅 10 mayo 2025</span>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">¿Qué es un DBA y por qué quiero serlo?</h3>
+      <p class="text-gray-600 mb-4">Exploro mi interés por la administración de bases de datos y el impacto que tiene un DBA en proyectos reales.</p>
+      <div class="hidden text-gray-600 mb-4 extra-content">
+        Hablamos de roles como respaldo, recuperación, rendimiento y seguridad de la información. También menciono herramientas como Oracle, SQL Server y PostgreSQL, y cómo planeo certificarme en el futuro.
+      </div>
+      <button onclick="toggleContent(this)" class="text-red-500 font-medium hover:underline">Ver más →</button>
+    </article>
+
+    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
+      <div class="flex items-center justify-between mb-2">
+        <span class="bg-blue-100 text-blue-600 px-3 py-1 text-xs rounded-full font-semibold">SQL</span>
+        <span class="text-gray-400 text-sm">📅 6 mayo 2025</span>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Tips para aprender SQL desde cero</h3>
+      <p class="text-gray-600 mb-4">Recomendaciones personales para estudiantes y autodidactas que desean dominar bases de datos relacionales.</p>
+      <div class="hidden text-gray-600 mb-4 extra-content">
+        Hablo de la importancia de practicar con proyectos reales, usar entornos como MySQL y PostgreSQL, leer documentación oficial y resolver ejercicios con joins, subconsultas y funciones agregadas.
+      </div>
+      <button onclick="toggleContent(this)" class="text-blue-500 font-medium hover:underline">Ver más →</button>
+    </article>
+
+    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
+      <div class="flex items-center justify-between mb-2">
+        <span class="bg-green-100 text-green-600 px-3 py-1 text-xs rounded-full font-semibold">Carrera</span>
+        <span class="text-gray-400 text-sm">📅 1 mayo 2025</span>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo elegí el camino de Ingeniería de Software</h3>
+      <p class="text-gray-600 mb-4">Una reflexión personal sobre lo que me motivó a estudiar esta carrera.</p>
+      <div class="hidden text-gray-600 mb-4 extra-content">
+        Desde joven me apasionaba la tecnología. A lo largo del tiempo descubrí que podía combinar creatividad con lógica para resolver problemas y construir sistemas útiles. Hoy quiero especializarme en datos.
+      </div>
+      <button onclick="toggleContent(this)" class="text-green-500 font-medium hover:underline">Ver más →</button>
+    </article>
+
+    <article class="bg-white rounded-xl p-6 border border-gray-200 shadow-sm card-hover">
+      <div class="flex items-center justify-between mb-2">
+        <span class="bg-yellow-100 text-yellow-600 px-3 py-1 text-xs rounded-full font-semibold">Proyectos</span>
+        <span class="text-gray-400 text-sm">📅 25 abril 2024</span>
+      </div>
+      <h3 class="text-xl font-bold text-gray-800 mb-2">Cómo hice mi primer sitio web profesional</h3>
+      <p class="text-gray-600 mb-4">Te cuento mi experiencia creando el sitio web de Bodega M.A.</p>
+      <div class="hidden text-gray-600 mb-4 extra-content">
+        Usé HTML, TailwindCSS y JS. Me enfoqué en que fuera responsive y que tuviera WhatsApp para pedidos, Google Maps para la ubicación y optimización para móviles. Todo sin frameworks.
+      </div>
+      <button onclick="toggleContent(this)" class="text-yellow-500 font-medium hover:underline">Ver más →</button>
+    </article>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center py-8 mt-20 text-gray-500 text-sm border-t border-gray-300">
+  <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+</footer>
+
+<!-- Script para ver más / ver menos -->
+<script>
+  function toggleContent(button) {
+    const content = button.previousElementSibling;
+    content.classList.toggle('hidden');
+    button.textContent = content.classList.contains('hidden') ? 'Ver más →' : 'Ver menos ←';
+  }
+</script>
+
+</body>
+</html>

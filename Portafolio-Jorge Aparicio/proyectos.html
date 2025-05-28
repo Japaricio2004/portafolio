@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyectos | Jorge Aparicio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Animación de elevación */
+    .card-hover {
+      transition: all 0.3s ease-in-out;
+    }
+    .card-hover:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                  0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+  <!-- Navbar -->
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <h1 class="text-3xl font-extrabold text-red-600">Jorge Aparicio</h1>
+      <ul class="hidden md:flex gap-6 text-gray-600 font-medium text-lg">
+        <li><a href="index.html" class="hover:text-red-500 transition">Inicio</a></li>
+        <li><a href="sobremi.html" class="hover:text-red-500 transition">Sobre mí</a></li>
+        <li><a href="cv.html" class="hover:text-red-500 transition">CV</a></li>
+        <li><a href="proyectos.html" class="text-red-500 font-semibold">Proyectos</a></li>
+        <li><a href="blog.html" class="hover:text-red-500 transition">Blog</a></li>
+        <li><a href="contacto.html" class="hover:text-red-500 transition">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Sección de Proyectos -->
+  <section class="max-w-6xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold text-red-500 mb-12 text-center">Mis proyectos</h2>
+    
+    <div class="grid md:grid-cols-2 gap-10">
+
+      <!-- Card 1 -->
+      <div class="bg-white rounded-2xl p-8 border border-gray-200 card-hover">
+        <div class="flex items-center mb-4">
+          <div class="text-red-500 text-3xl mr-3">🌐</div>
+          <h3 class="text-xl font-bold text-gray-800">Sitio Web para Bodega M.A.</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Desarrollo de un sitio web moderno y responsivo para una bodega local. Diseñado para mejorar la visibilidad, la interacción con los clientes y facilitar el acceso a través de distintos dispositivos.
+        </p>
+        <ul class="text-gray-500 text-sm list-disc pl-5 space-y-1">
+          <li>Navegación intuitiva y clara</li>
+          <li>Carrusel de productos destacados</li>
+          <li>Integraciones con WhatsApp y Google Maps</li>
+        </ul>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="bg-white rounded-2xl p-8 border border-gray-200 card-hover">
+        <div class="flex items-center mb-4">
+          <div class="text-red-500 text-3xl mr-3">📅</div>
+          <h3 class="text-xl font-bold text-gray-800">Plataforma de Gestión de Citas</h3>
+        </div>
+        <p class="text-gray-600 mb-4">
+          Plataforma web adaptable orientada a pequeños negocios y profesionales independientes para gestionar reservas en línea de forma eficiente y sin necesidad de registro.
+        </p>
+        <ul class="text-gray-500 text-sm list-disc pl-5 space-y-1">
+          <li>Ficha personalizada por negocio</li>
+          <li>Formulario de reserva accesible</li>
+          <li>Diseño amigable y adaptable</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 mt-20 text-gray-500 text-sm border-t border-gray-300">
+    <p>&copy; 2025 Jorge Aparicio | Todos los derechos reservados.</p>
+  </footer>
+
+</body>
+</html>
