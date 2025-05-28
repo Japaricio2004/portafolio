@@ -2,6 +2,8 @@
 
 ¡Bienvenido/a a mi portafolio web! Este proyecto muestra quién soy, qué hago y cómo puedo aportar valor como estudiante de Ingeniería de Software especializado en bases de datos y desarrollo web.
 
+> ⚠️ **Nota:** Este sitio está en proceso de actualización constante, pero ya es **totalmente funcional** y está disponible para su uso y visualización.
+
 ---
 
 ## 🌐 Sitio en línea
@@ -40,8 +42,3 @@ Este portafolio incluye las siguientes secciones:
 - Tipografía elegante con `Inter`.
 - Uso de **fondo con imagen y degradado** para profundidad visual.
 - Efectos interactivos: hover, transiciones suaves, y animaciones sutiles.
-
----
-
-## 📁 Estructura del proyecto
-
