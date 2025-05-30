@@ -194,7 +194,14 @@
 <header class="bg-black/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
         <div class="flex justify-between items-center">
-            <h1 class="text-2xl sm:text-3xl font-extrabold text-red-500 drop-shadow-lg">Jorge Aparicio</h1>
+            <div class="text-center md:text-left mb-4 md:mb-0">
+                <h1 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 drop-shadow-lg mb-1">
+                    Jorge Aparicio
+                </h1>
+                <p class="text-sm sm:text-base lg:text-lg font-bold tracking-wider text-orange-400 hover:text-orange-300 transition-all duration-500 drop-shadow-[0_0_10px_rgba(251,146,60,0.8)] hover:drop-shadow-[0_0_20px_rgba(251,146,60,1)] animate-pulse transform hover:scale-105 cursor-default">
+                Frontend & Data Enthusiast
+                </p>
+            </div>
             
             
             <nav class="hidden md:flex gap-4 lg:gap-6 text-gray-300 font-medium text-sm lg:text-lg">
@@ -288,16 +295,16 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             
-            // Update button icon
+            
             const icon = mobileMenuBtn.querySelector('svg path');
             if (mobileMenu.classList.contains('active')) {
-                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
             } else {
-                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
             }
         });
         
-        // Close menu when clicking on links
+        
         const menuLinks = mobileMenu.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
