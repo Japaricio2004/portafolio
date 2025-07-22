@@ -199,7 +199,7 @@
                     Jorge Aparicio
                 </h1>
                 <p class="text-sm sm:text-base lg:text-lg font-bold tracking-wider text-orange-400 hover:text-orange-300 transition-all duration-500 drop-shadow-[0_0_10px_rgba(251,146,60,0.8)] hover:drop-shadow-[0_0_20px_rgba(251,146,60,1)] animate-pulse transform hover:scale-105 cursor-default">
-                Frontend & Data Enthusiast
+                Full Stack & Data Enthusiast
                 </p>
             </div>
             
@@ -209,7 +209,6 @@
                 <a href="sobremi.html" class="hover:text-red-400 transition-colors duration-300">Sobre mí</a>
                 <a href="cv.html" class="text-red-500 font-semibold drop-shadow-sm">CV</a>
                 <a href="proyectos.html" class="hover:text-red-400 transition-colors duration-300">Proyectos</a>
-                <a href="blog.html" class="hover:text-red-400 transition-colors duration-300">Blog</a>
                 <a href="contacto.html" class="hover:text-red-400 transition-colors duration-300">Contacto</a>
             </nav>
             
@@ -242,7 +241,7 @@
         <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-3d border border-gray-800 transform transition hover:scale-105 duration-500 ease-bounce max-w-2xl mx-auto mb-6 sm:mb-8">
             <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">Mi Currículum</h2>
             <p class="text-base sm:text-lg text-gray-300 mb-4 sm:mb-6">Puedes descargarlo o verlo directamente aquí.</p>
-            <a href="assets/CV_Jorge-Luis_Aparicio-Alvarez.pdf" download class="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg sm:rounded-xl shadow-neon hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-110 hover:shadow-lg text-sm sm:text-base">
+            <a href="assets/CV_Jorge_Luis_Aparicio_Alvarez.pdf" download class="inline-block px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-red-500 to-red-600 text-white font-bold rounded-lg sm:rounded-xl shadow-neon hover:from-red-600 hover:to-red-700 transition-all duration-300 transform hover:scale-110 hover:shadow-lg text-sm sm:text-base">
                 📄 Descargar CV
             </a>
         </div>
@@ -256,7 +255,7 @@
 
     <div>
         <iframe 
-            src="assets/CV_Jorge-Luis_Aparicio-Alvarez.pdf" 
+            src="assets/CV_Jorge_Luis_Aparicio_Alvarez.pdf" 
             width="100%" 
             height="800" 
             class="w-full bg-white"
@@ -273,7 +272,13 @@
         </div>
         <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg border border-gray-800 transition-transform hover:scale-105 hover:shadow-neon duration-300">
             <h4 class="text-lg sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">🎓 Formación Académica</h4>
-            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">Estudiante de Ingeniería de Software con sólidos fundamentos en programación y tecnologías web.</p>
+            <p class="text-gray-300 text-sm sm:text-base leading-relaxed">Estudiante de Ingeniería de Software en la Universidad San Ignacio del Loyola (USIL) con sólidos fundamentos en programación y tecnologías web.</p>
+        </div>
+        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg border border-gray-800 transition-transform hover:scale-105 hover:shadow-neon duration-300">
+            <h4 class="text-lg sm:text-xl font-semibold text-red-500 mb-2 sm:mb-3">📞 Referencias</h4>
+            <p class="font-semibold text-gray-100">Evelyn Mondragon</p>
+            <p class="text-gray-300">Recursos Humanos (ABAI BUSINESS SOLUTIONS)</p>
+            <p class="text-blue-400 font-mono mt-1">+51 950 050 472</p>
         </div>
     </div>
 </section>
@@ -295,16 +300,16 @@ document.addEventListener('DOMContentLoaded', function() {
         mobileMenuBtn.addEventListener('click', function() {
             mobileMenu.classList.toggle('active');
             
-            
+            // Update button icon
             const icon = mobileMenuBtn.querySelector('svg path');
             if (mobileMenu.classList.contains('active')) {
-                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); 
+                icon.setAttribute('d', 'M6 18L18 6M6 6l12 12'); // X icon
             } else {
-                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); 
+                icon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16'); // Hamburger icon
             }
         });
         
-        
+        // Close menu when clicking on links
         const menuLinks = mobileMenu.querySelectorAll('a');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
