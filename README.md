@@ -20,7 +20,6 @@ Este sitio representa mi identidad profesional como estudiante de **Ingeniería 
 - **Sobre mí** → Historia, intereses, habilidades y visión profesional.
 - **CV** → Formación académica y experiencia relevante *(en progreso)*.
 - **Proyectos** → Selección de trabajos personales y académicos.
-- **Blog** → Reflexiones, aprendizajes y contenido sobre tecnología.
 - **Contacto** → Formulario funcional para conectarte conmigo fácilmente.
 
 ---
@@ -38,3 +37,7 @@ El proyecto fue desarrollado utilizando herramientas modernas, enfocadas en simp
 
 ¡Gracias por visitar!  
 Estoy abierto a sugerencias, colaboraciones y nuevas oportunidades. 🚀
+
+---
+
+Desarrollado por Jorge Luis Aparicio Alvarez
