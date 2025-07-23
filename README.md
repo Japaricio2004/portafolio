@@ -10,7 +10,7 @@ Este sitio representa mi identidad profesional como estudiante de **Ingeniería 
 
 ## 🌐 Sitio en línea
 
-🚀 [Explorar portafolio](https://portafolio-jorge-aparicio-alvarez.netlify.app)
+🚀 [Explorar portafolio](https://portafolio-jorge-aparicio.vercel.app/)
 
 ---
 
@@ -31,7 +31,7 @@ El proyecto fue desarrollado utilizando herramientas modernas, enfocadas en simp
 - ✅ **HTML5** → Estructura semántica del sitio.
 - ✅ **CSS3 / Tailwind CSS** → Estilización personalizada con utilidades modernas.
 - ✅ **JavaScript (básico)** → Interactividad ligera y mejoras visuales.
-- ✅ **Netlify** → Hosting rápido y confiable con CI/CD.
+- ✅ **Vercel** → Hosting rápido y confiable con CI/CD.
 
 ---
 
