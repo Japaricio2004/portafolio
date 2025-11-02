@@ -348,9 +348,27 @@
 
 <section class="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-16">
     <div class="text-center mb-8 sm:mb-16">
-        <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-3d border border-gray-800 transform transition hover:scale-105 duration-500 ease-bounce max-w-2xl mx-auto pulse-glow mb-8 sm:mb-12">
+        <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-10 shadow-3d border border-gray-800 transform transition hover:scale-105 duration-500 ease-bounce max-w-2xl mx-auto pulse-glow mb-6 sm:mb-8">
             <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">💬 Contáctame</h2>
             <p class="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed">¿Tienes una consulta o propuesta? Estoy encantado de leer tu mensaje y conectar contigo.</p>
+                        <div class="mt-4 flex flex-wrap justify-center gap-2 items-center">
+                            <span id="availability-badge" class="px-3 py-1 text-[11px] sm:text-xs rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Disponible</span>
+                            <span class="px-3 py-1 text-[11px] sm:text-xs rounded-full bg-blue-500/15 text-blue-300 border border-blue-500/30">Zona horaria: GMT-5</span>
+                        </div>
+                        <div class="mt-3 flex items-center justify-center gap-3">
+                            <span class="text-[11px] sm:text-xs text-gray-400">Cambiar estado:</span>
+                            <label for="availability-toggle" class="inline-flex items-center cursor-pointer select-none">
+                                <input id="availability-toggle" type="checkbox" class="sr-only peer" />
+                                <div class="w-11 h-6 bg-gray-700 rounded-full relative transition peer-checked:bg-emerald-600">
+                                    <span class="absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-all peer-checked:translate-x-5"></span>
+                                </div>
+                                <span id="availability-label" class="ml-2 text-[11px] sm:text-xs text-gray-300">Disponible</span>
+                            </label>
+                        </div>
+            <div class="mt-6 flex flex-wrap justify-center gap-3">
+              <a href="https://wa.me/51923566301?text=Hola%20Jorge,%20vi%20tu%20portafolio%20y%20quisiera%20contactarte." target="_blank" class="px-4 py-2 rounded-lg bg-green-600/90 hover:bg-green-600 text-white text-sm font-semibold shadow-neon transition">WhatsApp</a>
+              <a href="mailto:jorge2946237@gmail.com" class="px-4 py-2 rounded-lg border border-red-500/40 text-red-300 hover:bg-red-500/10 text-sm font-semibold transition">Email</a>
+            </div>
         </div>
     </div>
 
@@ -495,6 +513,36 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+
+    // Disponibilidad dinámica con toggle + persistencia
+    const badge = document.getElementById('availability-badge');
+    const toggle = document.getElementById('availability-toggle');
+    const label = document.getElementById('availability-label');
+
+    if (badge && toggle && label) {
+        const applyStatus = (status) => {
+            if (status === 'available') {
+                badge.textContent = 'Disponible';
+                badge.className = 'px-3 py-1 text-[11px] sm:text-xs rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30';
+                label.textContent = 'Disponible';
+                toggle.checked = true;
+            } else {
+                badge.textContent = 'Ocupado';
+                badge.className = 'px-3 py-1 text-[11px] sm:text-xs rounded-full bg-red-500/15 text-red-300 border border-red-500/30';
+                label.textContent = 'Ocupado';
+                toggle.checked = false;
+            }
+        };
+
+        const saved = localStorage.getItem('availabilityStatus');
+        applyStatus(saved === 'busy' ? 'busy' : 'available');
+
+        toggle.addEventListener('change', () => {
+            const next = toggle.checked ? 'available' : 'busy';
+            applyStatus(next);
+            localStorage.setItem('availabilityStatus', next);
+        });
+    }
 });
 </script>
 </body>

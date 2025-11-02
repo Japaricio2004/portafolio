@@ -203,7 +203,6 @@
                 <a href="sobremi.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Sobre mí</a>
                 <a href="cv.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">CV</a>
                 <a href="proyectos.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Proyectos</a>
-                <a href="blog.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Blog</a>
                 <a href="contacto.html" class="text-gray-300 hover:text-red-400 transition-colors duration-300 py-2">Contacto</a>
             </div>
         </nav>
@@ -219,6 +218,62 @@
             <p class="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
           Futuro ingeniero de software con enfoque en desarrollo web full stack y gestión de bases de datos. Motivado por el aprendizaje continuo.            </p>
         </div>
+    </section>
+
+    <!-- Resumen de tecnologías (compacto) -->
+    <section class="max-w-6xl mx-auto py-6 sm:py-10">
+      <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-gray-800 shadow-3d">
+        <h3 class="text-lg sm:text-2xl font-bold text-white mb-4 sm:mb-6 drop-shadow-sm text-center">🛠️ Tecnologías (resumen)</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>HTML5</span><span>85%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-red-500 to-red-600 w-0 transition-all duration-700" data-progress="85"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>CSS3</span><span>80%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-red-500 to-red-600 w-0 transition-all duration-700" data-progress="80"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>JavaScript</span><span>70%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-red-500 to-red-600 w-0 transition-all duration-700" data-progress="70"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>TailwindCSS</span><span>70%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 w-0 transition-all duration-700" data-progress="70"></div></div>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>Python</span><span>75%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-red-500 to-red-600 w-0 transition-all duration-700" data-progress="75"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>Flask</span><span>70%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 w-0 transition-all duration-700" data-progress="70"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>SQLAlchemy</span><span>65%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-blue-500 to-blue-600 w-0 transition-all duration-700" data-progress="65"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[11px] sm:text-xs text-gray-300 mb-1"><span>MySQL</span><span>65%</span></div>
+              <div class="h-2 bg-gray-800 rounded-full overflow-hidden"><div class="progress-fill h-full bg-gradient-to-r from-green-500 to-green-600 w-0 transition-all duration-700" data-progress="65"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section class="max-w-6xl mx-auto py-6">
+      <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-6 border border-gray-800 shadow-3d">
+        <h3 class="text-lg sm:text-2xl font-bold text-white mb-4 drop-shadow-sm text-center">🌐 Idiomas</h3>
+        <div class="flex flex-wrap justify-center gap-2">
+          <span class="px-3 py-1 bg-green-500/15 text-green-300 rounded-full text-xs border border-green-500/30">Español (Nativo)</span>
+          <span class="px-3 py-1 bg-blue-500/15 text-blue-300 rounded-full text-xs border border-blue-500/30">Inglés (Intermedio)</span>
+        </div>
+      </div>
     </section>
 
     
@@ -321,6 +376,28 @@
                 }
             });
         }
+        
+    // Animar barras de progreso del resumen de tecnologías
+    const fills = document.querySelectorAll('.progress-fill');
+    const animateFill = (el) => {
+      const target = el.getAttribute('data-progress');
+      if (!target || el.dataset.animated === 'true') return;
+      el.style.width = target + '%';
+      el.dataset.animated = 'true';
+    };
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateFill(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.3 });
+      fills.forEach(f => obs.observe(f));
+    } else {
+      fills.forEach(animateFill);
+    }
     });
   </script>
 </body>
