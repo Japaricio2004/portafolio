@@ -107,37 +107,6 @@
     100% { transform: rotate(360deg) scale(1); }
     }
 
-    
-    .particle {
-    position: fixed;
-    width: 2px;
-    height: 2px;
-    background: rgba(239, 68, 68, 0.3);
-    border-radius: 50%;
-    animation: float 20s infinite linear;
-    z-index: -1;
-    }
-
-    @keyframes float {
-    0% { 
-        transform: translateY(100vh) translateX(0) scale(0);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-        transform: translateY(90vh) translateX(10px) scale(1);
-    }
-    90% {
-        opacity: 1;
-        transform: translateY(10vh) translateX(-10px) scale(1);
-    }
-    100% { 
-        transform: translateY(-10vh) translateX(0) scale(0) rotate(360deg);
-        opacity: 0;
-    }
-    }
-
-    
     .mobile-menu {
         display: none;
         opacity: 0;
@@ -162,17 +131,6 @@
 </head>
 
 <body class="bg-black text-gray-100 font-sans min-h-screen">
-
-<div class="particle" style="left: 10%; animation-delay: 0s; background: rgba(239, 68, 68, 0.4);"></div>
-<div class="particle" style="left: 20%; animation-delay: 2s; background: rgba(59, 130, 246, 0.4);"></div>
-<div class="particle" style="left: 30%; animation-delay: 4s; background: rgba(168, 85, 247, 0.4);"></div>
-<div class="particle" style="left: 40%; animation-delay: 6s; background: rgba(34, 197, 94, 0.4);"></div>
-<div class="particle hidden sm:block" style="left: 50%; animation-delay: 8s; background: rgba(239, 68, 68, 0.3);"></div>
-<div class="particle hidden sm:block" style="left: 60%; animation-delay: 10s; background: rgba(59, 130, 246, 0.3);"></div>
-<div class="particle hidden md:block" style="left: 70%; animation-delay: 12s; background: rgba(168, 85, 247, 0.3);"></div>
-<div class="particle hidden md:block" style="left: 80%; animation-delay: 14s; background: rgba(34, 197, 94, 0.3);"></div>
-<div class="particle hidden lg:block" style="left: 90%; animation-delay: 16s; background: rgba(239, 68, 68, 0.2);"></div>
-
 
 <header class="bg-black/80 backdrop-blur-md border-b border-gray-800 sticky top-0 z-50">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4">
@@ -218,8 +176,12 @@
 <main class="px-4 sm:px-6">
     
     <section class="max-w-5xl mx-auto py-8 sm:py-12 lg:py-16">
-        <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 text-center transform transition duration-300 hover:scale-[1.02] shadow-3d border border-gray-800">
-            <img src="/images/ImagenPortafolio.jpeg" alt="Foto de Jorge" class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 mx-auto rounded-full shadow-neon ring-4 ring-red-500 mb-4 sm:mb-6 object-cover transition-transform duration-300 hover:scale-110" />
+        <div class="bg-gray-900/95 rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 text-center transition duration-300 shadow-3d border border-gray-800">
+            <div class="relative inline-block mx-auto mb-4 sm:mb-6 group">
+                <div class="absolute -inset-2 sm:inset-0 rounded-full bg-gradient-to-r from-red-500 via-red-400 to-red-600 blur-md opacity-50"></div>
+                <div class="absolute -inset-1 sm:inset-0 rounded-full bg-gradient-to-r from-red-500/40 via-red-400/30 to-red-600/30"></div>
+                <img src="/images/ImagenPortafolio.jpeg" alt="Foto de Jorge" class="relative w-32 h-32 sm:w-40 sm:h-40 md:w-44 md:h-44 lg:w-48 lg:h-48 rounded-full object-cover ring-4 ring-red-500 shadow-[0_18px_45px_rgba(239,68,68,0.35)] transition-all duration-500 hover:scale-110 hover:-rotate-1" />
+            </div>
             <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">¡Hola! Soy Jorge Aparicio</h2>
             <p class="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
                 Soy Jorge Luis Giovanni Aparicio Álvarez, estudiante de Ingeniería de Software en la Universidad San Ignacio de Loyola, actualmente en el octavo ciclo. Me interesa el desarrollo de soluciones web completas, desde la interfaz hasta la lógica del sistema, y me entusiasma aprender constantemente.
@@ -234,23 +196,23 @@
     
     <!-- Primera fila de 4 cards -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 text-gray-300 text-sm sm:text-base lg:text-lg justify-center">
-      <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 border border-gray-800 hover:border-red-500/50">
+      <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 border border-gray-800 hover:border-red-500/30">
         <div class="text-center">Bases de datos</div>
       </div>
-      <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 border border-gray-800 hover:border-red-500/50">
+      <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 border border-gray-800 hover:border-red-500/30">
         <div class="text-center">Desarrollo Frontend</div>
       </div>
-      <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 border border-gray-800 hover:border-red-500/50">
+      <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 border border-gray-800 hover:border-red-500/30">
         <div class="text-center">Desarrollo Backend</div>
       </div>
-      <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 border border-gray-800 hover:border-red-500/50">
+      <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 border border-gray-800 hover:border-red-500/30">
         <div class="text-center">Tecnología e innovación</div>
       </div>
     </div>
 
     <!-- Segunda fila: centrado con flex -->
     <div class="flex justify-center mt-4 sm:mt-6 lg:mt-8 text-gray-300 text-sm sm:text-base lg:text-lg">
-      <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 border border-gray-800 hover:border-red-500/50">
+      <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 border border-gray-800 hover:border-red-500/30">
         <div class="text-center">Routing y Switching</div>
       </div>
     </div>
@@ -263,22 +225,22 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
             <h3 class="text-xl sm:text-2xl lg:text-3xl font-bold text-red-500 mb-6 sm:mb-8 lg:mb-10 drop-shadow-sm">Habilidades blandas</h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 text-gray-300 text-sm sm:text-base lg:text-lg">
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Trabajo en equipo
                 </div>
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Actitud positiva
                 </div>
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Capacidad de aprendizaje rápido y adaptación
                 </div>
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Proactividad
                 </div>
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Empatía
                 </div>
-                <div class="bg-gray-900/80 backdrop-blur-sm shadow-lg rounded-xl p-4 sm:p-6 hover:shadow-neon transition-all duration-300 hover:-translate-y-1 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/50">
+                <div class="bg-gray-900/90 shadow-lg rounded-xl p-4 sm:p-6 transition-all duration-300 flex items-center justify-center text-center min-h-[80px] sm:min-h-[100px] lg:min-h-[120px] border border-gray-800 hover:border-red-500/30">
                     Orientación al servicio y atención al cliente
                 </div>
             </div>
@@ -295,7 +257,7 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                     <!-- Card: RIMAC -->
-                    <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
+                    <div class="bg-gray-900/90 rounded-xl p-4 border border-gray-800 shadow-3d transition">
                         <button class="cert-open w-full text-left" data-src="images/Hackaton.png" data-title="Hackathon RIMAC 2025 – Healthcare &amp; Data" data-issuer="RIMAC Seguros" data-date="Nov 2025" aria-haspopup="dialog">
                             <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
                                 <img src="images/Hackaton.png" alt="Certificado Hackathon RIMAC" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
@@ -309,7 +271,7 @@
 
 
                         <!-- Card: Cisco Introducción a Redes -->
-                        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
+                        <div class="bg-gray-900/90 rounded-xl p-4 border border-gray-800 shadow-3d transition">
                             <button class="cert-open w-full text-left" data-src="images/CCNA.jpeg" data-title="Cisco: Introducción a Redes" data-issuer="Cisco" data-date="Jul 2025" aria-haspopup="dialog">
                                 <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
                                     <img src="images/CCNA.jpeg" alt="Certificado CCNA" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
@@ -322,7 +284,7 @@
                         </div>
 
                         <!-- Card: Cisco Introducción a la Ciencia de Datos -->
-                        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
+                        <div class="bg-gray-900/90 rounded-xl p-4 border border-gray-800 shadow-3d transition">
                             <button class="cert-open w-full text-left" data-src="images/CCNA2.png" data-title="Cisco: Introducción a la Ciencia de Datos" data-issuer="Cisco" data-date="Nov 2025" aria-haspopup="dialog">
                                 <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
                                     <img src="images/CCNA2.png" alt="Certificado CCNA2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
