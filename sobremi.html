@@ -195,7 +195,6 @@
                 <a href="contacto.html" class="hover:text-red-400 transition-colors duration-300">Contacto</a>
             </nav>
             
-            
             <button id="mobile-menu-btn" class="md:hidden text-gray-300 p-2" aria-label="Abrir menú">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
@@ -220,7 +219,7 @@
     
     <section class="max-w-5xl mx-auto py-8 sm:py-12 lg:py-16">
         <div class="bg-gray-900/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 text-center transform transition duration-300 hover:scale-[1.02] shadow-3d border border-gray-800">
-            <img src="/images/imagenJorge.jpeg" alt="Foto de Jorge" class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 mx-auto rounded-full shadow-neon ring-4 ring-red-500 mb-4 sm:mb-6 object-cover transition-transform duration-300 hover:scale-110" />
+            <img src="/images/ImagenPortafolio.jpeg" alt="Foto de Jorge" class="w-20 h-20 sm:w-24 sm:h-24 md:w-32 md:h-32 lg:w-36 lg:h-36 mx-auto rounded-full shadow-neon ring-4 ring-red-500 mb-4 sm:mb-6 object-cover transition-transform duration-300 hover:scale-110" />
             <h2 class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-red-500 mb-3 sm:mb-4 drop-shadow-lg">¡Hola! Soy Jorge Aparicio</h2>
             <p class="text-sm sm:text-base lg:text-lg text-gray-300 leading-relaxed max-w-3xl mx-auto">
                 Soy Jorge Luis Giovanni Aparicio Álvarez, estudiante de Ingeniería de Software en la Universidad San Ignacio de Loyola, actualmente en el octavo ciclo. Me interesa el desarrollo de soluciones web completas, desde la interfaz hasta la lógica del sistema, y me entusiasma aprender constantemente.
@@ -295,25 +294,44 @@
                 <p class="text-sm text-gray-400 mb-6">Aquí puedes ver algunas de mis certificaciones. Haz clic en una tarjeta para ver la vista previa.</p>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Card: CCNA -->
+                    <!-- Card: RIMAC -->
                     <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
-                        <button class="cert-open w-full text-left" data-src="images/CCNA.jpeg" data-title="Cisco Certified Network Associate (CCNA)" data-issuer="Cisco" data-date="Jul 2025" aria-haspopup="dialog">
+                        <button class="cert-open w-full text-left" data-src="images/Hackaton.png" data-title="Hackathon RIMAC 2025 – Healthcare &amp; Data" data-issuer="RIMAC Seguros" data-date="Nov 2025" aria-haspopup="dialog">
                             <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
-                                <img src="images/CCNA.jpeg" alt="Certificado CCNA" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                <img src="images/Hackaton.png" alt="Certificado Hackathon RIMAC" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
                             </div>
                             <div class="mt-3 text-left">
-                                <h4 class="text-sm font-semibold text-gray-100">Cisco CCNA</h4>
-                                <p class="text-xs text-gray-400">Cisco · Jul 2025</p>
+                                <h4 class="text-sm font-semibold text-gray-100">Hackathon RIMAC 2025</h4>
+                                <p class="text-xs text-gray-400">Healthcare &amp; Data · Nov 2025</p>
                             </div>
                         </button>
                     </div>
 
-                        <!-- Card: placeholder discreto cuando no hay más certificaciones -->
-                        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-dashed border-gray-700 text-gray-500 flex items-center justify-center">
-                            <div>
-                                <div class="h-40 w-40 mx-auto rounded-md bg-gray-800 flex items-center justify-center mb-3 text-gray-400 text-4xl">🕒</div>
-                                <p class="text-sm text-gray-400">Más certificaciones próximamente</p>
-                            </div>
+
+                        <!-- Card: Cisco Introducción a Redes -->
+                        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
+                            <button class="cert-open w-full text-left" data-src="images/CCNA.jpeg" data-title="Cisco: Introducción a Redes" data-issuer="Cisco" data-date="Jul 2025" aria-haspopup="dialog">
+                                <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
+                                    <img src="images/CCNA.jpeg" alt="Certificado CCNA" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                </div>
+                                <div class="mt-3 text-left">
+                                    <h4 class="text-sm font-semibold text-gray-100">Introducción a Redes</h4>
+                                    <p class="text-xs text-gray-400">Redes · Cisco · Jul 2025</p>
+                                </div>
+                            </button>
+                        </div>
+
+                        <!-- Card: Cisco Introducción a la Ciencia de Datos -->
+                        <div class="bg-gray-900/80 backdrop-blur-sm rounded-xl p-4 border border-gray-800 shadow-3d hover:scale-[1.02] transition">
+                            <button class="cert-open w-full text-left" data-src="images/CCNA2.png" data-title="Cisco: Introducción a la Ciencia de Datos" data-issuer="Cisco" data-date="Nov 2025" aria-haspopup="dialog">
+                                <div class="h-44 bg-gray-800 rounded-md overflow-hidden flex items-center justify-center">
+                                    <img src="images/CCNA2.png" alt="Certificado CCNA2" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105" />
+                                </div>
+                                <div class="mt-3 text-left">
+                                    <h4 class="text-sm font-semibold text-gray-100">Introducción a la Ciencia de Datos</h4>
+                                    <p class="text-xs text-gray-400">Datos · Cisco · Nov 2025</p>
+                                </div>
+                            </button>
                         </div>
                 </div>
             </div>
