@@ -16,13 +16,11 @@ Bienvenido/a a mi portafolio web. Aquí muestro proyectos, habilidades y formas 
 
 ```
 portafolio/
-├─ index.html        # Inicio
-├─ sobremi.html      # Sobre mí
-├─ cv.html           # CV
-├─ proyectos.html    # Proyectos con vistas previas
-├─ contacto.html     # Contacto y disponibilidad
-├─ images/           # Imágenes
-└─ assets/           # Recursos estáticos (si aplica)
+├─ index.html        # Entrada Vite
+├─ src/              # Aplicación React y estilos
+├─ images/           # Imágenes originales
+├─ assets/           # CV en PDF
+└─ vercel.json       # Rutas de la aplicación
 ```
 
 ---
@@ -50,7 +48,6 @@ portafolio/
 ## 🧪 Proyectos destacados (demos)
 
 - Toque Mágico – Juego Web Interactivo → https://magic-touch-game.netlify.app/
-- Agenda Interactiva 3D → https://agenda-interactiva-ja.netlify.app/
 - LivePersona – Simulador de Personalidad → https://live-personasimulator.netlify.app/
 - Plataforma de Gestión de Reservas → https://sistema-de-reservas-16rb.onrender.com/
 - JOSETEC – Gestión de Reparaciones → https://projectjtec-1.onrender.com/
@@ -62,8 +59,8 @@ portafolio/
 
 ## 🧠 Tecnologías utilizadas
 
-- HTML5, CSS3, Tailwind CSS (CDN)
-- JavaScript (interactividad, IntersectionObserver)
+- React, Vite, JavaScript y CSS modular
+- Tipografía Montserrat servida localmente e iconografía SVG propia
 - Hosting: Vercel (producción). Demos individuales en Netlify/Render.
 
 ---
@@ -71,27 +68,25 @@ portafolio/
 ## 🎨 Diseño (UI/UX)
 
 Principios
-- Claridad y legibilidad en dark mode: alto contraste, tipografía limpia.
-- Consistencia visual: mismos radios, sombras y espaciados en componentes.
-- Feedback inmediato: hover/transiciones suaves y estados activos visibles.
+- Presentación directa del perfil, su enfoque técnico y acciones de contacto.
+- Proyectos descritos por su problema, alcance, stack y demo.
+- Componentes consistentes, SVG escalables y navegación por teclado.
 
 Tema y paleta
-- Base oscura: negro/antracita con fondos degradados animados.
-- Acentos: rojo principal (#ef4444). Complementos: azul (#3b82f6), morado (#a855f7), verde (#22c55e), cyan (#06b6d4).
-- Uso de transparencias (bg-…/20–30) y bordes sutiles para efecto “glass”.
+- Base carbón verdoso (#080b0e) y paneles oscuros.
+- Acento lima (#c2f970), con turquesa y menta para variar estados.
+- Fondo estático y detalles editoriales con tipografía serif de apoyo.
 
 Tipografía
-- Inter (sistema sans-serif de respaldo). Jerarquía con peso y tamaño, no múltiples familias.
+- Montserrat variable local para la interfaz; serif del sistema en acentos editoriales.
 
 Componentes y patrones
 - Navbar sticky con menú móvil colapsable y botón accesible (aria-label).
-- Cards con glassmorphism, sombras personalizadas (shadow-3d, neon) y hover 3D.
-- Chips y badges para tecnologías/estado (por ejemplo, disponibilidad y niveles).
-- Botones CTA (sólido y bordeado) con foco en accesibilidad y tamaño táctil.
-- Barras de progreso animadas para habilidades (Inicio/Proyectos).
-- Vistas previas con iframes lazy, con precarga en primer hover.
-- Toggle de disponibilidad en Contacto con persistencia localStorage.
-- Fondos dinámicos: gradientes animados y partículas sutiles (sin bloquear UI).
+- Cards con sombras sutiles y elevación ligera al pasar el cursor.
+- Filtros de proyectos, fichas técnicas y enlaces a demos/código.
+- Currículum con trayectoria, capacidades y visor PDF bajo demanda.
+- Certificados en un modal accesible con cierre por Escape.
+- Tipografía local y una hoja de estilos ligera, sin dependencias visuales por CDN.
 
 Responsive
 - Grid adaptable (1–2 columnas en sm/md/lg), tamaños de texto y paddings fluidos.
@@ -103,31 +98,28 @@ Accesibilidad y UX
 - Tocar/click fuera cierra el menú móvil; enlaces del menú cierran el panel.
 
 Animación y rendimiento
-- IntersectionObserver para: 1) cargar iframes al entrar en viewport y 2) animar barras.
-- Fallback si no hay soporte: carga directa y animación mínima.
-- Pointer-events: none en iframes de preview para evitar interferencia al scroll.
+- Imágenes secundarias con carga diferida y decodificación asíncrona.
+- Respeto de la preferencia del sistema para reducir movimiento.
 
 ---
 
 ## ▶️ Ejecutar localmente (Windows PowerShell)
 
-Este proyecto es estático. Puedes abrir `index.html` directamente en el navegador. Opcionalmente, usa un servidor local:
+Instala las dependencias y ejecuta el servidor de desarrollo:
 
 ```pwsh
-# Opción 1: Python (si está instalado)
-python -m http.server 5500
+npm install
+npm run dev
 
-# Luego navega a: http://localhost:5500/
-
-# Opción 2: Abrir directamente en Edge/Chrome (ejemplo Edge)
-Start-Process msedge .\index.html
+# Compilar para producción
+npm run build
 ```
 
 ---
 
 ## 🚀 Despliegue
 
-- Producción: Vercel (arrastre del proyecto o integración con GitHub).
+- Producción: Vercel (integración con GitHub; comando `npm run build`, directorio `dist`).
 - Alternativas: GitHub Pages (static hosting) o Netlify.
 
 ---
